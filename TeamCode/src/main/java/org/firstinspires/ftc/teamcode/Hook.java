@@ -15,7 +15,7 @@ public class Hook implements IHook {
     @Override
     public void grab() {
         for (Servo servo:
-             this.servos) {
+                this.servos) {
             servo.setPosition(FINAL_POSITION);
         }
     }

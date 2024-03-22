@@ -8,17 +8,20 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 public class ExodusMovement extends LinearOpMode {
     @Override
     public void runOpMode() {
-        Wheelbase wheelbase = new Wheelbase(Hardware.getWheelbaseMotors("left", "right", "front", "back"));
-        Hook hook = new Hook(Hardware.getHookServos("leftHookServo", "rightHookServo"), 0, 1);
+        Hardware hardware = new Hardware(hardwareMap);
+        Control control = new Control(gamepad1, gamepad2);
+        // Wheelbase wheelbase = new Wheelbase(hardware.getWheelbaseMotors("left", "right", "front", "back"));
+        Hook hook = new Hook(hardware.getHookServos("leftHookServo", "rightHookServo"), 0, 1);
         hook.configure();
-        wheelbase.configure();
+
+        // wheelbase.configure();
         waitForStart();
         while (opModeIsActive()) {
-            wheelbase.setPowers(PowersCalculator.normalizePowers(PowersCalculator.calculatePowers(Control.getMovementValues())));
-            if (Control.getHookGrabValue()) {
+            // wheelbase.setPowers(PowersCalculator.normalizePowers(PowersCalculator.calculatePowers(Control.getMovementValues())));
+            if (control.getHookGrabValue()) {
                 hook.grab();
             }
-            if (Control.getHookHomeValue()) {
+            if (control.getHookHomeValue()) {
                 hook.home();
             }
         }
