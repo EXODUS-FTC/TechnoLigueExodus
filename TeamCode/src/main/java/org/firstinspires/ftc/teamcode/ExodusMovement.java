@@ -8,21 +8,37 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 public class ExodusMovement extends LinearOpMode {
     @Override
     public void runOpMode() {
+        // Init necessary modules
         Hardware hardware = new Hardware(hardwareMap);
         Control control = new Control(gamepad1, gamepad2);
-        // Wheelbase wheelbase = new Wheelbase(hardware.getWheelbaseMotors("left", "right", "front", "back"));
-        Hook hook = new Hook(hardware.getHookServos("leftHookServo", "rightHookServo"), 0, 1);
-        hook.configure();
+//        Wheelbase wheelbase = new Wheelbase(hardware.getWheelbaseMotors("left", "right", "front", "back"));
+//        Hook hook = new Hook(hardware.getHookServos("leftHookServo", "rightHookServo"), 0, 1);
+        Elevator elevator = new Elevator(hardware.getMotor("elevatorMotor"));
+        Ejector ejector = new Ejector(hardware.getServo("ejectorServo"));
+//        Conveyor conveyor = new Conveyor(hardware.getMotor("conveyorMotor"));
 
-        // wheelbase.configure();
+        // Configuring
+//        wheelbase.configure();
+//        hook.configure();
+        elevator.configure();
+        ejector.configure();
+//        conveyor.configure();
+
         waitForStart();
         while (opModeIsActive()) {
-            // wheelbase.setPowers(PowersCalculator.normalizePowers(PowersCalculator.calculatePowers(Control.getMovementValues())));
-            if (control.getHookGrabValue()) {
-                hook.grab();
+//            wheelbase.setPowers(PowersCalculator.normalizePowers(PowersCalculator.calculatePowers(control.getMovementValues())));
+            elevator.setPower(control.getElevatorUp()-control.getElevatorDown());
+//            if (control.getHookGrabValue()) {
+//                hook.grab();
+//            }
+//            if (control.getHookHomeValue()) {
+//                hook.home();
+//            }
+            if (control.getEject()) {
+                ejector.eject();
             }
-            if (control.getHookHomeValue()) {
-                hook.home();
+            if (control.getEjectClose()) {
+                ejector.close();
             }
         }
     }

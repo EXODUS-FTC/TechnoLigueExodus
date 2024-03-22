@@ -27,4 +27,10 @@ public class Hardware {
         }
         return servos;
     }
+    public DcMotor getMotor(String deviceName) {
+        return this.hardwareMap.get(DcMotor.class, deviceName);
+    }
+    public Servo getServo(String deviceName) {
+        return this.hardwareMap.get(Servo.class, deviceName);
+    }
 }
