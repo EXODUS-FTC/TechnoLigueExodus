@@ -31,6 +31,6 @@ public class Hook implements IHook {
     @Override
     public void configure() {
         this.servos[0].setDirection(Servo.Direction.FORWARD);
-        this.servos[1].setDirection(Servo.Direction.REVERSE);
+        this.servos[1].setDirection(Servo.Direction.FORWARD);
     }
 }
