@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode;
 import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.telemetry;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 import java.util.Map;
 
@@ -12,18 +13,16 @@ public class Wheelbase {
         this.motors = motors;
     }
     public void configure() {
-        this.motors.get("left").setDirection(DcMotor.Direction.REVERSE);
-        this.motors.get("right").setDirection(DcMotor.Direction.FORWARD);
-        this.motors.get("back").setDirection(DcMotor.Direction.REVERSE);
-        this.motors.get("front").setDirection(DcMotor.Direction.FORWARD);
+        this.motors.get("r1").setDirection(DcMotor.Direction.FORWARD);
+        this.motors.get("l1").setDirection(DcMotor.Direction.REVERSE);
+        this.motors.get("r2").setDirection(DcMotor.Direction.FORWARD);
+        this.motors.get("l2").setDirection(DcMotor.Direction.FORWARD);
     }
 
     public void setPowers(Map<String, Double> powers) {
         for (String motor:
                 this.motors.keySet()) {
             this.motors.get(motor).setPower(powers.get(motor));
-            telemetry.addData(motor, "%4.2f", powers.get(motor));
         }
-        telemetry.update();
     }
 }

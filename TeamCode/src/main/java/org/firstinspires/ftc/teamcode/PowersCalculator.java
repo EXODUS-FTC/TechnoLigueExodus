@@ -19,10 +19,10 @@ public class PowersCalculator {
         double vertical = movementValues.get("vertical");
         double horizontal = movementValues.get("horizontal");
         double rotation = movementValues.get("rotation");
-        powers.put("left", -vertical+horizontal+rotation);
-        powers.put("right", -vertical+horizontal-rotation);
-        powers.put("front", vertical+horizontal-rotation);
-        powers.put("back", vertical+horizontal+rotation);
+        powers.put("r1", -vertical-horizontal-rotation);
+        powers.put("l1", vertical-horizontal-rotation);
+        powers.put("r2", -vertical+horizontal-rotation);
+        powers.put("l2", vertical+horizontal-rotation);
         return powers;
     }
 }
