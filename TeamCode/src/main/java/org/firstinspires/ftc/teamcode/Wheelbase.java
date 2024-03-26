@@ -19,6 +19,20 @@ public class Wheelbase {
         this.motors.get("l2").setDirection(DcMotor.Direction.FORWARD);
     }
 
+    public void goLeft(double seconds) {
+        this.motors.get("r1").setPower(0.5);
+        this.motors.get("l1").setPower(0.5);
+        this.motors.get("r2").setPower(-0.5);
+        this.motors.get("l2").setPower(-0.5);
+    }
+
+    public void goRight(double seconds) {
+        this.motors.get("r1").setPower(0.5);
+        this.motors.get("l1").setPower(0.5);
+        this.motors.get("r2").setPower(-0.5);
+        this.motors.get("l2").setPower(-0.5);
+    }
+
     public void setPowers(Map<String, Double> powers) {
         for (String motor:
                 this.motors.keySet()) {

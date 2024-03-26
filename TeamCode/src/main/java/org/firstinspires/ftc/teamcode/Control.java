@@ -40,9 +40,21 @@ public class Control {
         return gamepad2.left_trigger;
     }
     public boolean getEject() {
-        return gamepad2.a;
+        return gamepad1.x;
     }
     public boolean getEjectClose() {
-        return gamepad2.b;
+        return gamepad1.y;
+    }
+    public boolean getGrabberHome() {
+        return gamepad2.right_bumper;
+    }
+    public boolean getGrabberGrab() {
+        return gamepad2.left_bumper;
+    }
+    public boolean getMoverUp() {
+        return gamepad1.right_bumper;
+    }
+    public boolean getMoverDown() {
+        return gamepad1.left_bumper;
     }
 }

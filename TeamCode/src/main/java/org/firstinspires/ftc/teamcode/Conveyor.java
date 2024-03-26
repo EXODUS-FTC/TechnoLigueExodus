@@ -27,4 +27,9 @@ public class Conveyor implements IConveyor {
     public void stop() {
 
     }
+
+    @Override
+    public void setPower(double power) {
+        this.motor.setPower(power);
+    }
 }

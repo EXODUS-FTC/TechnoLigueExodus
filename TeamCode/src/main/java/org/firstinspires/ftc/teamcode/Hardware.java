@@ -20,7 +20,7 @@ public class Hardware {
         }
         return motors;
     }
-    public Servo[] getHookServos(String... deviceNames) {
+    public Servo[] getServos(String... deviceNames) {
         Servo[] servos = new Servo[deviceNames.length];
         for (int i = 0; i < deviceNames.length; i++) {
             servos[i] = this.hardwareMap.get(Servo.class, deviceNames[i]);
