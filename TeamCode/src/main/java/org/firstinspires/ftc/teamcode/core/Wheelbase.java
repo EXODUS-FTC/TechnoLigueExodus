@@ -1,7 +1,8 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.core;
 
-import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.telemetry;
 
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
@@ -19,18 +20,39 @@ public class Wheelbase {
         this.motors.get("l2").setDirection(DcMotor.Direction.FORWARD);
     }
 
-    public void goLeft(double seconds) {
+    public void goLeft() {
         this.motors.get("r1").setPower(0.5);
         this.motors.get("l1").setPower(0.5);
         this.motors.get("r2").setPower(-0.5);
         this.motors.get("l2").setPower(-0.5);
     }
 
-    public void goRight(double seconds) {
+    public void goRight() {
+        this.motors.get("r1").setPower(-0.5);
+        this.motors.get("l1").setPower(-0.5);
+        this.motors.get("r2").setPower(0.5);
+        this.motors.get("l2").setPower(0.5);
+    }
+
+    public void goForward() {
         this.motors.get("r1").setPower(0.5);
+        this.motors.get("l1").setPower(-0.5);
+        this.motors.get("r2").setPower(0.5);
+        this.motors.get("l2").setPower(-0.5);
+    }
+
+    public void goBack() {
+        this.motors.get("r1").setPower(-0.5);
         this.motors.get("l1").setPower(0.5);
         this.motors.get("r2").setPower(-0.5);
-        this.motors.get("l2").setPower(-0.5);
+        this.motors.get("l2").setPower(0.5);
+    }
+
+    public void stop() {
+        this.motors.get("r1").setPower(0);
+        this.motors.get("l1").setPower(0);
+        this.motors.get("r2").setPower(0);
+        this.motors.get("l2").setPower(0);
     }
 
     public void setPowers(Map<String, Double> powers) {

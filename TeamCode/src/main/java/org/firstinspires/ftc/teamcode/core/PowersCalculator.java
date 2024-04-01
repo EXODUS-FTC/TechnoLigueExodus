@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.core;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -16,13 +16,13 @@ public class PowersCalculator {
     }
     public static Map<String, Double> calculatePowers(HashMap<String, Float> movementValues) {
         Map<String, Double> powers = new HashMap<>();
-        double vertical = movementValues.get("vertical");
-        double horizontal = movementValues.get("horizontal");
-        double rotation = movementValues.get("rotation");
-        powers.put("r1", -vertical-horizontal-(rotation/2));
-        powers.put("l1", vertical-horizontal-(rotation/2));
-        powers.put("r2", -vertical+horizontal-(rotation/2));
-        powers.put("l2", vertical+horizontal-(rotation/2));
+        double vertical = movementValues.get("vertical") / 1.5;
+        double horizontal = movementValues.get("horizontal") / 1.5;
+        double rotation = movementValues.get("rotation") / 2;
+        powers.put("r1", -vertical-horizontal-(rotation));
+        powers.put("l1", vertical-horizontal-(rotation));
+        powers.put("r2", -vertical+horizontal-(rotation));
+        powers.put("l2", vertical+horizontal-(rotation));
         return powers;
     }
 }

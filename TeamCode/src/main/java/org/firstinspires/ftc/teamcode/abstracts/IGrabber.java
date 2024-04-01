@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.abstracts;
 
 public interface IGrabber {
     public void configure();

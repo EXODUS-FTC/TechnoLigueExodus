@@ -1,6 +1,8 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.core;
 
 import com.qualcomm.robotcore.hardware.Servo;
+
+import org.firstinspires.ftc.teamcode.abstracts.IGrabber;
 
 public class Grabber implements IGrabber {
     private final Servo[] grabberServos;
@@ -10,7 +12,7 @@ public class Grabber implements IGrabber {
     private final double MOVER_FINAL_POSITION;
     private final Servo[] moverServo;
 
-    Grabber(Servo[] grabberServos,
+    public Grabber(Servo[] grabberServos,
             Servo[] moverServo,
             double GRABBER_HOME_POSITION,
             double GRABBER_FINAL_POSITION,

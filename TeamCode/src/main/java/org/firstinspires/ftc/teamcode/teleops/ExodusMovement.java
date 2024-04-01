@@ -1,8 +1,18 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.teleops;
 
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+
+import org.firstinspires.ftc.teamcode.core.Control;
+import org.firstinspires.ftc.teamcode.core.Conveyor;
+import org.firstinspires.ftc.teamcode.core.Ejector;
+import org.firstinspires.ftc.teamcode.core.Elevator;
+import org.firstinspires.ftc.teamcode.core.Grabber;
+import org.firstinspires.ftc.teamcode.core.Hardware;
+import org.firstinspires.ftc.teamcode.core.Hook;
+import org.firstinspires.ftc.teamcode.core.PowersCalculator;
+import org.firstinspires.ftc.teamcode.core.Wheelbase;
 
 @TeleOp(name="ExodusMovement", group="Linear OpMode")
 public class ExodusMovement extends LinearOpMode {
@@ -23,6 +33,7 @@ public class ExodusMovement extends LinearOpMode {
                 1,
                 0,
                 1);
+
         // Configuring
         wheelbase.configure();
         hook.configure();
@@ -35,12 +46,7 @@ public class ExodusMovement extends LinearOpMode {
             wheelbase.setPowers(PowersCalculator.normalizePowers(PowersCalculator.calculatePowers(control.getMovementValues())));
             elevator.setPower(control.getElevatorUp()-control.getElevatorDown());
             conveyor.setPower(control.getConveyorForward()-control.getConveyorReverse());
-            if (control.getHookGrabValue()) {
-                hook.grab();
-            }
-            if (control.getHookHomeValue()) {
-                hook.home();
-            }
+
             if (control.getEject()) {
                 ejector.eject();
             }

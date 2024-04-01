@@ -1,9 +1,12 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.core;
 
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+
+import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,5 +35,8 @@ public class Hardware {
     }
     public Servo getServo(String deviceName) {
         return this.hardwareMap.get(Servo.class, deviceName);
+    }
+    public WebcamName getCamera(String deviceName) {
+        return this.hardwareMap.get(WebcamName.class, deviceName);
     }
 }

@@ -1,23 +1,31 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.core;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
-public class Elevator implements IElevator {
+import org.firstinspires.ftc.teamcode.abstracts.IConveyor;
+
+public class Conveyor implements IConveyor {
     private final DcMotor motor;
-    public Elevator(DcMotor motor) {
+    public Conveyor(DcMotor motor) {
         this.motor = motor;
     }
+    @Override
     public void configure() {
         this.motor.setDirection(DcMotor.Direction.FORWARD);
     }
+
     @Override
-    public void lift() {
+    public void goUp() {
 
     }
 
     @Override
-    public void lower() {
+    public void goDown() {
+
+    }
+
+    @Override
+    public void stop() {
 
     }
 
